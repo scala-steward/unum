@@ -16,6 +16,7 @@ lazy val unum = project
   .enablePlugins(AutomateHeaderPlugin)
   .settings(
     name := "unum",
+    mimaPreviousArtifacts := Set.empty,
     libraryDependencies ++=
       compileM(cats) ++ testM(munit, catsLaws, scalaCheck, munitDiscipline),
     scalacOptions ++= {
@@ -29,6 +30,7 @@ inThisBuild(
     crossScalaVersions := Seq(Scala3, Scala2),
     versionScheme := Some("semver-spec"),
     tlBaseVersion := "1.0",
+    tlSonatypeUseLegacyHost := false,
     javacOptions ++= Seq("-target", "8", "-source", "8"),
     organization := "io.github.ahjohannessen",
     organizationName := "Alex Henning Johannessen",
