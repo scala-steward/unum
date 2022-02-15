@@ -16,7 +16,6 @@ lazy val unum = project
   .enablePlugins(AutomateHeaderPlugin)
   .settings(
     name := "unum",
-    mimaPreviousArtifacts := Set.empty,
     libraryDependencies ++=
       compileM(cats) ++ testM(munit, catsLaws, scalaCheck, munitDiscipline),
     scalacOptions ++= {
