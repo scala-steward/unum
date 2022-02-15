@@ -1,0 +1,30 @@
+queue_rules:
+  - name: default
+    conditions:
+      - status-success~=Build and Test \(ubuntu-latest, 2\.13\.\d{1}.+\)
+      - status-success~=Build and Test \(ubuntu-latest, 3\.\d{1}\.\d{1}.+\)
+
+pull_request_rules:
+
+  - name: Automatically merge pull requests
+    conditions:
+      - status-success~=Build and Test \(ubuntu-latest, 2\.13\.\d{1}.+\)
+      - status-success~=Build and Test \(ubuntu-latest, 3\.\d{1}\.\d{1}.+\)
+      - label=merge
+    actions:
+      queue:
+        method: merge
+        name: default
+      delete_head_branch: {}
+
+  - name: Automatically merge scala-steward's PRs
+    conditions:
+      - author=scala-steward
+      - status-success~=Build and Test \(ubuntu-latest, 2\.13\.\d{1}.+\)
+      - status-success~=Build and Test \(ubuntu-latest, 3\.\d{1}\.\d{1}.+\)
+      - body~=labels:(.*-patch.*)|(.*-minor.*)
+    actions:
+      queue:
+        method: rebase
+        name: default
+      delete_head_branch: {}
