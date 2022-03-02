@@ -17,20 +17,16 @@ lazy val unum = project
   .settings(
     name := "unum",
     libraryDependencies ++=
-      compileM(cats) ++ testM(munit, catsLaws, scalaCheck, munitDiscipline),
-    scalacOptions ++= {
-      if (tlIsScala3.value) Seq("-Xtarget:8") else Seq("-target:8")
-    }
+      compileM(cats) ++ testM(munit, catsLaws, scalaCheck, munitDiscipline)
   )
 
 inThisBuild(
   List(
     scalaVersion := Scala3,
     crossScalaVersions := Seq(Scala3, Scala2),
-    versionScheme := Some("early-semver"),
+    tlJdkRelease := Some(8),
     tlBaseVersion := "1.0",
     tlSonatypeUseLegacyHost := false,
-    javacOptions ++= Seq("-target", "8", "-source", "8"),
     organization := "io.github.ahjohannessen",
     organizationName := "Alex Henning Johannessen",
     startYear := Some(2022),
