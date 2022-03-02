@@ -27,7 +27,7 @@ inThisBuild(
   List(
     scalaVersion := Scala3,
     crossScalaVersions := Seq(Scala3, Scala2),
-    versionScheme := Some("semver-spec"),
+    versionScheme := Some("early-semver"),
     tlBaseVersion := "1.0",
     tlSonatypeUseLegacyHost := false,
     javacOptions ++= Seq("-target", "8", "-source", "8"),
