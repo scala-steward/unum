@@ -27,6 +27,7 @@ inThisBuild(
     tlJdkRelease := Some(8),
     tlBaseVersion := "1.0",
     tlSonatypeUseLegacyHost := false,
+    mergifyStewardConfig ~= { _.map(_.copy(mergeMinors = true)) },
     organization := "io.github.ahjohannessen",
     organizationName := "Alex Henning Johannessen",
     startYear := Some(2022),
