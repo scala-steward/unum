@@ -4,7 +4,7 @@ Global / onChangedBuildSource := ReloadOnSourceChanges
 Global / lintUnusedKeysOnLoad := false
 
 lazy val Scala2 = "2.13.8"
-lazy val Scala3 = "3.1.2"
+lazy val Scala3 = "3.1.3"
 
 lazy val root = project
   .in(file("."))
