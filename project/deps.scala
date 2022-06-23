@@ -9,6 +9,7 @@ object deps {
     val scalaCheck      = "1.16.0"
     val munitDiscipline = "1.0.9"
     val munit           = "0.7.29"
+    val spikeCE         = "3.3.0"
 
   }
 
@@ -20,6 +21,7 @@ object deps {
 
   val munit           = "org.scalameta"  %% "munit"            % versions.munit
   val catsLaws        = "org.typelevel"  %% "cats-laws"        % versions.catsCore
+  val catsEffect      = "org.typelevel"  %% "cats-effect"      % versions.spikeCE
   val scalaCheck      = "org.scalacheck" %% "scalacheck"       % versions.scalaCheck
   val munitDiscipline = "org.typelevel"  %% "discipline-munit" % versions.munitDiscipline
 

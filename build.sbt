@@ -17,7 +17,7 @@ lazy val unum = project
   .settings(
     name := "unum",
     libraryDependencies ++=
-      compileM(cats) ++ testM(munit, catsLaws, scalaCheck, munitDiscipline)
+      compileM(cats) ++ testM(munit, catsEffect, catsLaws, scalaCheck, munitDiscipline)
   )
 
 inThisBuild(
