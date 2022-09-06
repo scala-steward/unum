@@ -25,7 +25,7 @@ inThisBuild(
     scalaVersion := Scala3,
     crossScalaVersions := Seq(Scala3, Scala2),
     tlJdkRelease := Some(8),
-    tlBaseVersion := "1.0",
+    tlBaseVersion := "1.1",
     tlSonatypeUseLegacyHost := false,
     mergifyStewardConfig ~= { _.map(_.copy(mergeMinors = true).copy(author = "scala-steward-ahjohannessen[bot]")) },
     organization := "io.github.ahjohannessen",
