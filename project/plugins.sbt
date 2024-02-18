@@ -1,3 +1,3 @@
-addSbtPlugin("org.typelevel" % "sbt-typelevel"         % "0.6.5")
-addSbtPlugin("org.typelevel" % "sbt-typelevel-mergify" % "0.6.5")
+addSbtPlugin("org.typelevel" % "sbt-typelevel"         % "0.6.6")
+addSbtPlugin("org.typelevel" % "sbt-typelevel-mergify" % "0.6.6")
 addSbtPlugin("com.eed3si9n"  % "sbt-buildinfo"         % "0.11.0")
