@@ -28,7 +28,7 @@ jobs:
     strategy:
       matrix:
         os: [ubuntu-latest]
-        scala: [3, 2.13]
+        scala: [3]
         java: [temurin@17]
     runs-on: ${{ matrix.os }}
     timeout-minutes: 60
@@ -122,16 +122,6 @@ jobs:
           tar xf targets.tar
           rm targets.tar
 
-      - name: Download target directories (2.13)
-        uses: actions/download-artifact@v4
-        with:
-          name: target-${{ matrix.os }}-${{ matrix.java }}-2.13
-
-      - name: Inflate target directories (2.13)
-        run: |
-          tar xf targets.tar
-          rm targets.tar
-
       - name: Import signing key
         if: env.PGP_SECRET != '' && env.PGP_PASSPHRASE == ''
         env:
@@ -186,7 +176,7 @@ jobs:
       - name: Submit Dependencies
         uses: scalacenter/sbt-dependency-submission@v2
         with:
-          modules-ignore: root_3 root_2.13
+          modules-ignore: root_3
           configs-ignore: test scala-tool scala-doc-tool test-internal
 
   validate-steward:
