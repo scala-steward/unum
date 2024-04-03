@@ -3,7 +3,6 @@ import deps._
 Global / onChangedBuildSource := ReloadOnSourceChanges
 Global / lintUnusedKeysOnLoad := false
 
-lazy val Scala2 = "2.13.13"
 lazy val Scala3 = "3.4.1"
 
 lazy val root = project
@@ -23,7 +22,7 @@ lazy val unum = project
 inThisBuild(
   List(
     scalaVersion := Scala3,
-    crossScalaVersions := Seq(Scala3, Scala2),
+    crossScalaVersions := Seq(Scala3),
     tlJdkRelease := Some(8),
     tlBaseVersion := "1.2",
     tlSonatypeUseLegacyHost := false,
