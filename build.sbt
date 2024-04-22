@@ -26,7 +26,7 @@ inThisBuild(
     tlJdkRelease := Some(8),
     tlBaseVersion := "1.2",
     tlSonatypeUseLegacyHost := false,
-    mergifyStewardConfig ~= { _.map(_.copy(mergeMinors = true).copy(author = "scala-steward-ahjohannessen[bot]")) },
+    mergifyStewardConfig ~= { _.map(_.withMergeMinors(true).withAuthor("scala-steward-ahjohannessen[bot]")) },
     organization := "io.github.ahjohannessen",
     organizationName := "Alex Henning Johannessen",
     startYear := Some(2022),
