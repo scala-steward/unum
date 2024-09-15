@@ -8,7 +8,7 @@ object deps {
     val catsCore        = "2.12.0"
     val scalaCheck      = "1.18.0"
     val munitDiscipline = "2.0.0"
-    val munit           = "1.0.1"
+    val munit           = "1.0.2"
 
   }
 
