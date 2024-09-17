@@ -6,7 +6,7 @@ object deps {
   object versions {
 
     val catsCore        = "2.12.0"
-    val scalaCheck      = "1.18.0"
+    val scalaCheck      = "1.18.1"
     val munitDiscipline = "2.0.0"
     val munit           = "1.0.2"
 
