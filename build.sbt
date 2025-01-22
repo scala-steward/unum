@@ -3,7 +3,7 @@ import deps._
 Global / onChangedBuildSource := ReloadOnSourceChanges
 Global / lintUnusedKeysOnLoad := false
 
-lazy val Scala3 = "3.6.2"
+lazy val Scala3 = "3.6.3"
 
 lazy val root = project
   .in(file("."))
