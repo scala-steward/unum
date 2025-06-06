@@ -34,6 +34,7 @@ inThisBuild(
 
     // ==== Github Actions
 
+    tlUntaggedAreSnapshots := false,
     githubWorkflowTargetBranches := Seq("main"),
     githubWorkflowJavaVersions := Seq(JavaSpec.temurin("17"))
   )
