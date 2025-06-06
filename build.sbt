@@ -25,7 +25,6 @@ inThisBuild(
     crossScalaVersions := Seq(Scala3),
     tlJdkRelease := Some(8),
     tlBaseVersion := "1.2",
-    tlSonatypeUseLegacyHost := false,
     mergifyStewardConfig ~= { _.map(_.withMergeMinors(true).withAuthor("scala-steward-ahjohannessen[bot]")) },
     organization := "io.github.ahjohannessen",
     organizationName := "Alex Henning Johannessen",
