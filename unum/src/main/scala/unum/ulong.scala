@@ -16,10 +16,10 @@
 
 package unum
 
-import java.lang.{Long => JLong}
+import java.lang.Long as JLong
 import cats.Order
 
-object ULong {
+object ULong:
 
   val min: ULong  = ULong(0L)
   val zero: ULong = ULong(0L)
@@ -29,19 +29,15 @@ object ULong {
 
   //
 
-  implicit val orderForULong: Order[ULong] =
+  given orderForULong: Order[ULong] =
     Order.from[ULong]((x, y) => JLong.compareUnsigned(x.signed, y.signed))
 
-  implicit val orderingForULong: Ordering[ULong] =
-    orderForULong.toOrdering
+  given Ordering[ULong] = orderForULong.toOrdering
 
-  implicit final class ULongOps(val u: ULong) {
+  extension (u: ULong)
     def toLong: Long     = u.signed
     def render: String   = JLong.toUnsignedString(u.signed)
     def toBigInt: BigInt = BigInt(JLong.toUnsignedString(u.signed))
-  }
-
-}
 
 final class ULong(val signed: Long) extends AnyVal {
   override def toString: String = JLong.toUnsignedString(signed)

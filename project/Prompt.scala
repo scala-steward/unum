@@ -9,11 +9,12 @@ object Prompt {
     .orElse(sys.env.get("os.name").map(_.toLowerCase).filter(_.contains("windows")).map(_ => false))
     .getOrElse(true)
 
-  private def cyan(str: String) =
+  private def cyan(str: String): String =
     if (isANSISupported) CYAN + str + RESET else str
 
-  val enrichedShellPrompt: State => String = { state: State =>
-    s"[${cyan(Project.extract(state).currentProject.id)}] λ "
+  def enrichedShellPrompt(state: State): String = {
+    val project = cyan(Project.extract(state).currentProject.id)
+    s"[$project] λ "
   }
 
 }

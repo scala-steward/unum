@@ -3,7 +3,8 @@ import deps._
 Global / onChangedBuildSource := ReloadOnSourceChanges
 Global / lintUnusedKeysOnLoad := false
 
-lazy val Scala3 = "3.7.4"
+lazy val Scala3     = "3.8.1"
+lazy val jdkRelease = 21
 
 lazy val root = project
   .in(file("."))
@@ -23,8 +24,9 @@ inThisBuild(
   List(
     scalaVersion := Scala3,
     crossScalaVersions := Seq(Scala3),
-    tlJdkRelease := Some(8),
-    tlBaseVersion := "1.3",
+    tlJdkRelease := Some(jdkRelease),
+    mimaFailOnProblem := false,
+    tlBaseVersion := "1.4",
     mergifyStewardConfig ~= { _.map(_.withMergeMinors(true).withAuthor("scala-steward-ahjohannessen[bot]")) },
     organization := "io.github.ahjohannessen",
     organizationName := "Alex Henning Johannessen",
@@ -35,6 +37,6 @@ inThisBuild(
     // ==== Github Actions
 
     githubWorkflowTargetBranches := Seq("main"),
-    githubWorkflowJavaVersions := Seq(JavaSpec.temurin("17"))
+    githubWorkflowJavaVersions := Seq(JavaSpec.temurin(jdkRelease.toString()))
   )
 )
