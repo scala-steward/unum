@@ -16,17 +16,17 @@
 
 package unum
 
-import java.lang.{Long => JLong}
-import cats.syntax.all._
-import cats.kernel.laws.discipline._
-import munit._
-import org.scalacheck._
+import java.lang.Long as JLong
+import cats.syntax.all.*
+import cats.kernel.laws.discipline.*
+import munit.*
+import org.scalacheck.*
 import org.scalacheck.Prop.forAll
 
-class ULongSuite extends DisciplineSuite {
+class ULongSuite extends DisciplineSuite:
 
-  implicit val ulong: Arbitrary[ULong] = Arbitrary(Arbitrary.arbitrary[Long].map(l => ULong(l)))
-  implicit val cogen: Cogen[ULong]     = Cogen[BigInt].contramap[ULong](_.toBigInt)
+  given Arbitrary[ULong] = Arbitrary(Arbitrary.arbitrary[Long].map(l => ULong(l)))
+  given Cogen[ULong] = Cogen[BigInt].contramap[ULong](_.toBigInt)
 
   //
 
@@ -78,5 +78,3 @@ class ULongSuite extends DisciplineSuite {
   }
 
   checkAll("Order[ULong]", OrderTests[ULong].order)
-
-}
